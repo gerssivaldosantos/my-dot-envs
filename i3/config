@@ -70,16 +70,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1 Front 💻"
+set $ws2 "2 Back 🖥️"
+set $ws3 "3 Database 📋"
+set $ws4 "4 Web 🔍"
+set $ws5 "5 Aux ❓"
+set $ws6 "6 Video 📺"
+set $ws7 "7 Docs 📚"
+set $ws8 "8 Spotify 🎧"
+set $ws9 "9 Tasks ✔️"
+set $ws10 "10 Message 📬"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -148,16 +148,16 @@ set $gray_purple "#616161"
 set $gray "#474747"
 
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 12
+    font pango:DejaVu Sans Mono, FontAwesome 9
     position top
     tray_output none
     i3bar_command i3bar --transparency
     status_command ~/bumblebee-status/bumblebee-status \
-    -m title bluetooth2 amixer pasource cpu memory nic sensors battery weather kernel datetime layout system\
+    -m title dunst bluetooth2 amixer pasource cpu memory nic sensors battery weather datetime layout system\
     -p datetime.format="%A %d - %R" title.max="25" sensors.show_freq="false" memory.format="{percent:.0f}%" cpu.warning="60" cpu.format="{:.0f}%" nic.exclude="enp, lo" nic.format="{ssid}"  \
-    -t dracula-powerline
+    -t iceberg
   colors {
-    background #282A36
+    background #161821
     statusline #F8F8F2
     separator  #44475A
 
@@ -179,9 +179,9 @@ exec --no-startup-id nitrogen --restore
 
 #i3 gaps
 
-for_window [class="^.*"] border pixel 4
-gaps inner 13
-gaps outer 3
+for_window [class="^.*"] border pixel 1
+gaps inner 20
+gaps outer 5
 
 #Border colors
 
@@ -210,3 +210,16 @@ bindsym $mod+d exec "rofi -show drun"
 #Keyboard
 
 exec_always "setxkbmap -model pc104 -layout us,br -variant ,, -option grp:alt_shift_toggle"
+
+#Brightnesss
+
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
+
+#Picom 
+
+exec --no-startup-id picom -b 
+
+#Auto start apps 
+
+exec_always --no-startup-id plank
