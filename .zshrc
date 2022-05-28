@@ -106,10 +106,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
- alias mktp="code ~/Documents/personal-projects/market-place-client && code ~/Documents/personal-projects/market-place-api"
+ alias mktp="docker start postgres && code ~/Documents/personal-projects/market-place-client && code ~/Documents/personal-projects/market-place-api"
  alias rcc="code ~/Documents/RCC/rcc-client && code ~/Documents/RCC/rcc-server"
+ alias rcc-old="code ~/Documents/RCC/rcc-client && code ~/Documents/RCC/old/rcc-*"
  alias i3="nvim ~/.config/i3/config"
-
+ alias merge= "git pull && git fetch origin develop && git merge origin develop"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
